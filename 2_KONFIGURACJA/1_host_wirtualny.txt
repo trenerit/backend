@@ -1,0 +1,16 @@
+W pliku C:\xampp\apache\conf\extra\httpd-vhosts 
+dopisz poniższe dyrektywy i zrestartuj serwer Apache2:
+
+<VirtualHost *:80>
+	DocumentRoot "C:/xampp/htdocs"
+	ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>
+	DocumentRoot "C:/xampp/htdocs/contactsapi_loc/public"
+	ServerName contactsapi.loc
+</VirtualHost>
+
+#UWAGA! założono, że XAMPP jest zainstalowany w domyślnej lokalizacji!!!
+#Jeśli masz inną lokalizację podmień ja na właściwą.
+

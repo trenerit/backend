@@ -1,0 +1,7 @@
+1) Otwórz notatnik z uprawnieniami administratora.
+2) Wybierz plik -> otwórz i wybierz następującą ścieżkę:
+C:\Windows\System32\drivers\etc
+3) Wybierz "pokaż wszystkie pliki" i wybierz plik o nazwie hosts (bez rozszerzenia!).
+4) Na końcu pliku dopisz:
+127.0.0.1 contactsapi.loc
+5) Zapisz zmiany dokonane w pliku.
