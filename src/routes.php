@@ -6,7 +6,7 @@ use Firebase\JWT\JWT;
 
 //view all contacts
 $app->get('/contacts', function(Request $request, Response $response){
-    $sql = "SELECT * FROM contacts";
+    $sql = "SELECT * FROM contacts ORDER BY id DESC";
     $stmt = $this->db->prepare($sql);
     $stmt->execute();
     $contacts = $stmt->fetchAll();
@@ -57,6 +57,15 @@ $app->delete('/contact/{id}', function(Request $request, Response $response, arr
     $stmt->execute();
     $res = ["status" => "ok"];
     return $this->response->withJson($res);
+});
+
+$app->get('/search/{name}', function(Request $request, Response $response, array $arr){
+    $sql = "SELECT * FROM contacts WHERE surname LIKE :surname2 ORDER BY id DESC";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue(':surname2', $arr['name'].'%', PDO::PARAM_STR);
+    $stmt->execute();
+    $contacts = $stmt->fetchAll();
+    return $this->response->withJson($contacts);
 });
 
 $app->post('/login',  function(Request $request, Response $response){
